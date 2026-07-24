@@ -210,6 +210,29 @@ class Form_Guard {
 			wp_safe_redirect( add_query_arg( array( 'tab' => 'settings', 'saved' => '1' ), admin_url( 'tools.php?page=form-guard' ) ) );
 			exit;
 		}
+
+		if ( 'export_entries' === $action ) {
+			self::export_entries_csv();
+			exit;
+		}
+	}
+
+	/**
+	 * Export entries to CSV.
+	 */
+	public static function export_entries_csv() {
+		$form_id = isset( $_POST['fg_export_form_id'] ) ? sanitize_text_field( wp_unslash( $_POST['fg_export_form_id'] ) ) : '';
+		$entries = self::get_entries( $form_id );
+
+		header( 'Content-Type: text/csv; charset=utf-8' );
+		header( 'Content-Disposition: attachment; filename=form-guard-entries-' . gmdate( 'Y-m-d' ) . '.csv' );
+
+		$fp = fopen( 'php://output', 'w' );
+		fputcsv( $fp, array( 'ID', 'Form ID', 'Created At', 'Data' ) );
+		foreach ( $entries as $entry ) {
+			fputcsv( $fp, array( $entry['id'], $entry['form_id'], $entry['created_at'], $entry['data'] ) );
+		}
+		fclose( $fp );
 	}
 
 	/**

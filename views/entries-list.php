@@ -19,6 +19,12 @@ $forms       = Form_Guard::get_forms();
 		</select>
 		<button type="submit" class="button"><?php esc_html_e( 'Filter', 'form-guard' ); ?></button>
 	</form>
+	<form method="post" class="fg-inline">
+		<?php wp_nonce_field( 'fg_admin' ); ?>
+		<input type="hidden" name="fg_action" value="export_entries">
+		<input type="hidden" name="fg_export_form_id" value="<?php echo esc_attr( $form_filter ); ?>">
+		<button type="submit" class="button"><?php esc_html_e( 'Export CSV', 'form-guard' ); ?></button>
+	</form>
 </div>
 
 <?php if ( empty( $entries ) ) : ?>

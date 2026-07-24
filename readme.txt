@@ -21,6 +21,7 @@ Features:
 * Custom recipient email and subject per form.
 * Honeypot spam protection.
 * Stores all submissions in the database.
+* Export entries to CSV.
 * Shortcode support: [form_guard id="your_form_id"].
 * Responsive form styling out of the box.
 

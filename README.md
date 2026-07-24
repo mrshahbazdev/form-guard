@@ -10,7 +10,7 @@ A WordPress plugin to build custom contact forms with spam protection, email not
 - Custom recipient email and email subject per form.
 - Stores every submission in the database.
 - Shortcode: `[form_guard id="your_form_id"]`.
-- Entry filtering and deletion from the admin.
+- Entry filtering, deletion and CSV export from the admin.
 
 ## Installation
 
