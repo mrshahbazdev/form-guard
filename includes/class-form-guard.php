@@ -254,7 +254,7 @@ class Form_Guard {
 		$forms    = self::get_forms();
 		$settings = self::get_settings();
 		$edit_id  = isset( $_GET['edit'] ) ? sanitize_text_field( wp_unslash( $_GET['edit'] ) ) : '';
-		$edit     = $edit_id ? self::get_form( $edit_id ) : null;
+		$edit     = ( $edit_id && 'new' !== $edit_id ) ? self::get_form( $edit_id ) : null;
 
 		include FG_DIR . 'views/admin.php';
 	}

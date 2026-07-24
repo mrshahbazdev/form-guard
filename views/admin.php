@@ -44,7 +44,7 @@ $stats   = array(
 	</div>
 
 	<?php if ( 'forms' === $tab ) : ?>
-		<?php if ( $edit ) : ?>
+		<?php if ( $edit || isset( $_GET['edit'] ) ) : ?>
 			<?php include FG_DIR . 'views/form-editor.php'; ?>
 		<?php else : ?>
 			<?php include FG_DIR . 'views/forms-list.php'; ?>
