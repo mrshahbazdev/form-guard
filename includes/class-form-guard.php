@@ -281,7 +281,9 @@ class Form_Guard {
 	 * AJAX form submission.
 	 */
 	public static function ajax_submit() {
-		check_ajax_referer( 'fg_public_nonce', 'fg_public_nonce', false );
+		if ( false === check_ajax_referer( 'fg_public_nonce', 'fg_public_nonce', false ) ) {
+			wp_send_json_error( array( 'message' => __( 'Security check failed.', 'form-guard' ) ) );
+		}
 
 		$form_id = isset( $_POST['fg_form_id'] ) ? sanitize_text_field( wp_unslash( $_POST['fg_form_id'] ) ) : '';
 		$form    = self::get_form( $form_id );
