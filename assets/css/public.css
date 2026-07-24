@@ -1,0 +1,75 @@
+.fg-form {
+    max-width: 600px;
+    padding: 20px;
+    background: #fff;
+    border: 1px solid #c3c4c7;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    font-family: inherit;
+}
+
+.fg-field {
+    margin-bottom: 16px;
+}
+
+.fg-field label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #1d2327;
+}
+
+.fg-required {
+    color: #d63638;
+}
+
+.fg-field input[type="text"],
+.fg-field input[type="email"],
+.fg-field textarea,
+.fg-field select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #8c8f94;
+    border-radius: 6px;
+    font-size: 15px;
+    box-sizing: border-box;
+}
+
+.fg-field textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.fg-check-label {
+    display: block;
+    font-weight: 400 !important;
+    margin-bottom: 4px;
+}
+
+.fg-submit {
+    padding: 10px 22px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.fg-hp {
+    position: absolute;
+    left: -9999px;
+    opacity: 0;
+}
+
+.fg-response {
+    padding: 12px;
+    border-radius: 6px;
+    margin-bottom: 16px;
+}
+
+.fg-response.success {
+    background: #e5f5e8;
+    color: #00a32a;
+}
+
+.fg-response.error {
+    background: #ffeded;
+    color: #d63638;
+}
